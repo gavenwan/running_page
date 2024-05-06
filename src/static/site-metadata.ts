@@ -13,7 +13,7 @@ const data: ISiteMetadataResult = {
   siteTitle: '奔跑着看看世界',
   siteUrl: 'https://wenxiaowan.com',
   logo: 'https://blog.wenxiaowan.com/avatar.jpg',
-  description: 'Wan's running page',
+  description: 'Running Records by Wan',
   navLinks: [
     {
       name: 'Blog',
