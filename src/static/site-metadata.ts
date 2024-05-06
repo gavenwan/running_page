@@ -10,17 +10,17 @@ interface ISiteMetadataResult {
 }
 
 const data: ISiteMetadataResult = {
-  siteTitle: 'Running Page',
-  siteUrl: 'https://yihong.run',
-  logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtc69JxHNcmN1ETpMUX4dozAgAN6iPjWalQ&usqp=CAU',
-  description: 'Personal site and blog',
+  siteTitle: '奔跑着看看世界',
+  siteUrl: 'https://wenxiaowan.com',
+  logo: 'https://blog.wenxiaowan.com/avatar.jpg',
+  description: 'Wan's running page',
   navLinks: [
     {
       name: 'Blog',
-      url: 'https://github.com/yihong0618/gitblog',
+      url: 'https://blog.wenxiaowan.com',
     },
     {
-      name: 'About',
+      name: 'TksTo',
       url: 'https://github.com/yihong0618/running_page/blob/master/README-CN.md',
     },
   ],
