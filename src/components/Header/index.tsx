@@ -18,6 +18,7 @@ const Header = () => {
           {navLinks.map((n, i) => (
             <a
               key={i}
+              target="_blank"
               href={n.url}
               className="mr-3 text-lg lg:mr-4 lg:text-base"
             >
