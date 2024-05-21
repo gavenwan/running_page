@@ -58,7 +58,8 @@ const Index = () => {
 
   const changeYear = (y: string) => {
     // default year
-    setYear(y);
+    //setYear(y);
+    setYear("Total");
 
     if ((viewState.zoom ?? 0) > 3 && bounds) {
       setViewState({
