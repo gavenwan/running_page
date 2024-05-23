@@ -106,5 +106,5 @@ export const NEED_FIX_MAP = false;
 export const MAIN_COLOR = nike;
 export const PROVINCE_FILL_COLOR = '#47b8e0';
 // export const COUNTRY_FILL_COLOR = dark_vanilla;
-export const COUNTRY_FILL_COLOR = rgb(0,255,255);
+export const COUNTRY_FILL_COLOR = 'rgb(0,255,255)';
 
