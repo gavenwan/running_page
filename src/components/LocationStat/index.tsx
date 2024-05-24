@@ -28,7 +28,6 @@ const LocationStat = ({
         .
         <br />
         <br />
-        Yesterday you said tomorrow.
       </p>
     </section>
     <hr color="red" />
