@@ -2,12 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://blog.wenxiaowan.com/avatar.jpg" />
+    <link rel="icon" type="image/png" href="https://blog.wenxiaowan.com/avatar.jpg" onerror="urlchange()" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Running Page</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      function urlchange(){
+        const blogLink = Array.from(document.querySelectorAll('a')).find(el => el.textContent.trim().toLowerCase() === 'blog');
+        bloglink.href="http://home.wenxiaowan.com:4444";
+      }
+    </script>
   </body>
+  
 </html>
