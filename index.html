@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://blog.wenxiaowan.com/avatar.jpg" onerror="urlchange()" />
+    <link rel="icon" type="image/png" href="https://blog.wenxiaowan.com/avatar.jpg" onerror="imgchange()" onload="urlchange()" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Running Page</title>
   </head>
@@ -12,7 +12,10 @@
     <script>
       function urlchange(){
         const blogLink = Array.from(document.querySelectorAll('a')).find(el => el.textContent.trim().toLowerCase() === 'blog');
-        bloglink.href="http://home.wenxiaowan.com:4444";
+        bloglink.href="https://blog.wenxiaowan.com";
+      }
+      function imgchange(e){
+        e.target.src="http://home.wenxiaowan.com:4444/avatar.jpg"
       }
     </script>
   </body>
