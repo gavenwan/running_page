@@ -17,7 +17,7 @@ const data: ISiteMetadataResult = {
   navLinks: [
     {
       name: 'Blog',
-      url: 'https://home.wenxiaowan.com:4444',
+      url: 'https://home.wenxiaowan.com:18080',
     },
     {
       name: 'TksTo',
