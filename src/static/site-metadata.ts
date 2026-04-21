@@ -25,6 +25,10 @@ const data: ISiteMetadataResult = {
       url: `${getBasePath()}/summary`,
     },
     {
+      name: '旅游',
+      url: `${getBasePath()}/travel`,
+    },
+    {
       name: 'Blog',
       url: 'https://blog.wenxiaowan.com',
     },
