@@ -71,7 +71,9 @@ interface PlaceModalProps {
 const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
   const [name, setName] = useState(place?.name ?? '');
   const [description, setDescription] = useState(place?.description ?? '');
-  const [status, setStatus] = useState<'wishlist' | 'visited'>(place?.status ?? 'wishlist');
+  const [status, setStatus] = useState<'wishlist' | 'visited'>(
+    place?.status ?? 'wishlist'
+  );
   const [blogUrl, setBlogUrl] = useState(place?.blogUrl ?? '');
   const [visitDate, setVisitDate] = useState(place?.visitDate ?? '');
   const [photos, setPhotos] = useState<string[]>(place?.photos ?? []);
@@ -109,7 +111,8 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
       status,
       photos,
       blogUrl: blogUrl.trim() || undefined,
-      visitDate: status === 'visited' ? visitDate.trim() || undefined : undefined,
+      visitDate:
+        status === 'visited' ? visitDate.trim() || undefined : undefined,
       createdAt: place?.createdAt ?? new Date().toISOString(),
     });
   };
@@ -148,7 +151,11 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-            style={{ background: 'var(--input-bg,#f5f5f5)', borderColor: 'var(--border,#ddd)', color: 'inherit' }}
+            style={{
+              background: 'var(--input-bg,#f5f5f5)',
+              borderColor: 'var(--border,#ddd)',
+              color: 'inherit',
+            }}
             placeholder="例：京都 / 张家界"
             autoFocus
           />
@@ -161,7 +168,11 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-            style={{ background: 'var(--input-bg,#f5f5f5)', borderColor: 'var(--border,#ddd)', color: 'inherit' }}
+            style={{
+              background: 'var(--input-bg,#f5f5f5)',
+              borderColor: 'var(--border,#ddd)',
+              color: 'inherit',
+            }}
             rows={2}
             placeholder="关于这个地方..."
           />
@@ -172,12 +183,22 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
           <label className="mb-1 block text-sm font-semibold">状态</label>
           <div className="flex gap-4">
             <label className="flex cursor-pointer items-center gap-2">
-              <input type="radio" value="wishlist" checked={status === 'wishlist'} onChange={() => setStatus('wishlist')} />
+              <input
+                type="radio"
+                value="wishlist"
+                checked={status === 'wishlist'}
+                onChange={() => setStatus('wishlist')}
+              />
               <span className="inline-block h-3 w-3 rounded-full bg-red-500" />
               <span className="text-sm">想去</span>
             </label>
             <label className="flex cursor-pointer items-center gap-2">
-              <input type="radio" value="visited" checked={status === 'visited'} onChange={() => setStatus('visited')} />
+              <input
+                type="radio"
+                value="visited"
+                checked={status === 'visited'}
+                onChange={() => setStatus('visited')}
+              />
               <span className="inline-block h-3 w-3 rounded-full bg-green-500" />
               <span className="text-sm">去过了</span>
             </label>
@@ -193,7 +214,11 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
               value={visitDate}
               onChange={(e) => setVisitDate(e.target.value)}
               className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-              style={{ background: 'var(--input-bg,#f5f5f5)', borderColor: 'var(--border,#ddd)', color: 'inherit' }}
+              style={{
+                background: 'var(--input-bg,#f5f5f5)',
+                borderColor: 'var(--border,#ddd)',
+                color: 'inherit',
+              }}
             />
           </div>
         )}
@@ -206,7 +231,11 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
             value={blogUrl}
             onChange={(e) => setBlogUrl(e.target.value)}
             className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-            style={{ background: 'var(--input-bg,#f5f5f5)', borderColor: 'var(--border,#ddd)', color: 'inherit' }}
+            style={{
+              background: 'var(--input-bg,#f5f5f5)',
+              borderColor: 'var(--border,#ddd)',
+              color: 'inherit',
+            }}
             placeholder="https://blog.wenxiaowan.com/..."
           />
         </div>
@@ -222,7 +251,14 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
             >
               📷 上传图片
             </button>
-            <input ref={fileRef} type="file" accept="image/*" multiple onChange={handleFileUpload} className="hidden" />
+            <input
+              ref={fileRef}
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleFileUpload}
+              className="hidden"
+            />
           </div>
           <div className="flex gap-2">
             <input
@@ -231,7 +267,11 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
               onChange={(e) => setPhotoInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleAddPhotoUrl()}
               className="flex-1 rounded-lg border px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-              style={{ background: 'var(--input-bg,#f5f5f5)', borderColor: 'var(--border,#ddd)', color: 'inherit' }}
+              style={{
+                background: 'var(--input-bg,#f5f5f5)',
+                borderColor: 'var(--border,#ddd)',
+                color: 'inherit',
+              }}
               placeholder="或粘贴图片URL，回车添加"
             />
             <button
@@ -246,11 +286,19 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
             <div className="mt-2 flex flex-wrap gap-2">
               {photos.map((p, i) => (
                 <div key={i} className="group relative">
-                  <img src={p} alt="" className="h-16 w-16 rounded-lg object-cover" />
+                  <img
+                    src={p}
+                    alt=""
+                    className="h-16 w-16 rounded-lg object-cover"
+                  />
                   <button
-                    onClick={() => setPhotos((prev) => prev.filter((_, j) => j !== i))}
+                    onClick={() =>
+                      setPhotos((prev) => prev.filter((_, j) => j !== i))
+                    }
                     className="absolute -right-1 -top-1 hidden h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white group-hover:flex"
-                  >×</button>
+                  >
+                    ×
+                  </button>
                 </div>
               ))}
             </div>
@@ -262,12 +310,16 @@ const PlaceModal: React.FC<PlaceModalProps> = ({ place, onSave, onClose }) => {
             onClick={onClose}
             className="rounded-lg border px-4 py-2 text-sm hover:bg-gray-100"
             style={{ borderColor: 'var(--border,#ddd)' }}
-          >取消</button>
+          >
+            取消
+          </button>
           <button
             onClick={handleSave}
             disabled={!name.trim()}
             className="rounded-lg bg-blue-500 px-5 py-2 text-sm font-medium text-white hover:bg-blue-600 disabled:opacity-40"
-          >保存</button>
+          >
+            保存
+          </button>
         </div>
       </div>
     </div>
@@ -282,7 +334,12 @@ interface PlaceDetailProps {
   onClose: () => void;
 }
 
-const PlaceDetail: React.FC<PlaceDetailProps> = ({ place, onEdit, onDelete, onClose }) => {
+const PlaceDetail: React.FC<PlaceDetailProps> = ({
+  place,
+  onEdit,
+  onDelete,
+  onClose,
+}) => {
   const [photo, setPhoto] = useState(0);
 
   return (
@@ -303,12 +360,18 @@ const PlaceDetail: React.FC<PlaceDetailProps> = ({ place, onEdit, onDelete, onCl
         <button
           onClick={onClose}
           className="absolute right-4 top-4 text-2xl font-bold opacity-50 hover:opacity-90"
-        >×</button>
+        >
+          ×
+        </button>
 
         <div className="mb-2 flex items-center gap-2">
-          <span className="text-xl">{place.status === 'visited' ? '🚩' : '📍'}</span>
+          <span className="text-xl">
+            {place.status === 'visited' ? '🚩' : '📍'}
+          </span>
           <h2 className="text-lg font-bold">{place.name}</h2>
-          <span className={`ml-auto rounded-full px-2 py-0.5 text-xs font-semibold text-white ${place.status === 'visited' ? 'bg-green-500' : 'bg-red-500'}`}>
+          <span
+            className={`ml-auto rounded-full px-2 py-0.5 text-xs font-semibold text-white ${place.status === 'visited' ? 'bg-green-500' : 'bg-red-500'}`}
+          >
             {place.status === 'visited' ? '已去过' : '想去'}
           </span>
         </div>
@@ -317,7 +380,9 @@ const PlaceDetail: React.FC<PlaceDetailProps> = ({ place, onEdit, onDelete, onCl
           <p className="mb-2 text-xs opacity-60">📅 {place.visitDate}</p>
         )}
         {place.description && (
-          <p className="mb-3 text-sm leading-relaxed opacity-80">{place.description}</p>
+          <p className="mb-3 text-sm leading-relaxed opacity-80">
+            {place.description}
+          </p>
         )}
 
         {/* 照片轮播 */}
@@ -332,13 +397,24 @@ const PlaceDetail: React.FC<PlaceDetailProps> = ({ place, onEdit, onDelete, onCl
               {place.photos.length > 1 && (
                 <>
                   <button
-                    onClick={() => setPhoto((p) => (p - 1 + place.photos.length) % place.photos.length)}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 px-2 py-1 text-white text-lg hover:bg-black/60"
-                  >‹</button>
+                    onClick={() =>
+                      setPhoto(
+                        (p) =>
+                          (p - 1 + place.photos.length) % place.photos.length
+                      )
+                    }
+                    className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 px-2 py-1 text-lg text-white hover:bg-black/60"
+                  >
+                    ‹
+                  </button>
                   <button
-                    onClick={() => setPhoto((p) => (p + 1) % place.photos.length)}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 px-2 py-1 text-white text-lg hover:bg-black/60"
-                  >›</button>
+                    onClick={() =>
+                      setPhoto((p) => (p + 1) % place.photos.length)
+                    }
+                    className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 px-2 py-1 text-lg text-white hover:bg-black/60"
+                  >
+                    ›
+                  </button>
                   <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1">
                     {place.photos.map((_, i) => (
                       <button
@@ -373,11 +449,15 @@ const PlaceDetail: React.FC<PlaceDetailProps> = ({ place, onEdit, onDelete, onCl
           <button
             onClick={onEdit}
             className="flex-1 rounded-lg bg-blue-500 py-2 text-sm font-medium text-white hover:bg-blue-600"
-          >编辑</button>
+          >
+            编辑
+          </button>
           <button
             onClick={onDelete}
             className="rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-600"
-          >删除</button>
+          >
+            删除
+          </button>
         </div>
       </div>
     </div>
@@ -392,7 +472,12 @@ interface TravelMapProps {
   isDark: boolean;
 }
 
-const TravelMap: React.FC<TravelMapProps> = ({ places, onMapClick, onMarkerClick, isDark }) => {
+const TravelMap: React.FC<TravelMapProps> = ({
+  places,
+  onMapClick,
+  onMarkerClick,
+  isDark,
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   // 用 ref 存储 markers，key = place.id
@@ -415,14 +500,21 @@ const TravelMap: React.FC<TravelMapProps> = ({ places, onMapClick, onMarkerClick
     });
 
     // 添加导航控件
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    map.addControl(
+      new maplibregl.NavigationControl({ showCompass: false }),
+      'top-right'
+    );
     // 添加简洁版 attribution
-    map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+    map.addControl(
+      new maplibregl.AttributionControl({ compact: true }),
+      'bottom-right'
+    );
 
     // 点击地图空白处 → 添加地点
     map.on('click', (e) => {
       // 如果点击了 marker，则不触发地图点击
-      if ((e.originalEvent.target as HTMLElement).closest('.travel-marker')) return;
+      if ((e.originalEvent.target as HTMLElement).closest('.travel-marker'))
+        return;
       onMapClick(e.lngLat.lat, e.lngLat.lng);
     });
 
@@ -505,7 +597,7 @@ const TravelMap: React.FC<TravelMapProps> = ({ places, onMapClick, onMarkerClick
   return (
     <div
       ref={containerRef}
-      className="h-full w-full rounded-2xl overflow-hidden"
+      className="h-full w-full overflow-hidden rounded-2xl"
       style={{ minHeight: '500px' }}
     />
   );
@@ -515,7 +607,9 @@ const TravelMap: React.FC<TravelMapProps> = ({ places, onMapClick, onMarkerClick
 const TravelPage: React.FC = () => {
   const [places, setPlaces] = useState<TravelPlace[]>(loadPlaces);
   const [showModal, setShowModal] = useState(false);
-  const [editingPlace, setEditingPlace] = useState<Partial<TravelPlace> | null>(null);
+  const [editingPlace, setEditingPlace] = useState<Partial<TravelPlace> | null>(
+    null
+  );
   const [selectedPlace, setSelectedPlace] = useState<TravelPlace | null>(null);
   const [filter, setFilter] = useState<'all' | 'wishlist' | 'visited'>('all');
   // 检测当前是否暗色主题
@@ -528,7 +622,10 @@ const TravelPage: React.FC = () => {
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.getAttribute('data-theme') === 'dark');
     });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
     return () => observer.disconnect();
   }, []);
 
@@ -576,7 +673,9 @@ const TravelPage: React.FC = () => {
     }
   };
 
-  const filteredPlaces = places.filter((p) => filter === 'all' || p.status === filter);
+  const filteredPlaces = places.filter(
+    (p) => filter === 'all' || p.status === filter
+  );
   const wishlistCount = places.filter((p) => p.status === 'wishlist').length;
   const visitedCount = places.filter((p) => p.status === 'visited').length;
 
@@ -590,14 +689,15 @@ const TravelPage: React.FC = () => {
       <div className="flex w-full flex-col gap-5 lg:flex-row">
         {/* ── 左侧面板 ── */}
         <div className="flex w-full flex-col lg:w-80 lg:flex-shrink-0">
-
           {/* 统计 */}
           <div className="mb-4 grid grid-cols-2 gap-3">
             <div className="rounded-2xl bg-red-50 p-4 dark:bg-red-950/20">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">📍</span>
                 <div>
-                  <p className="text-2xl font-bold text-red-500">{wishlistCount}</p>
+                  <p className="text-2xl font-bold text-red-500">
+                    {wishlistCount}
+                  </p>
                   <p className="text-xs text-gray-500">想去的地方</p>
                 </div>
               </div>
@@ -606,7 +706,9 @@ const TravelPage: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🚩</span>
                 <div>
-                  <p className="text-2xl font-bold text-green-500">{visitedCount}</p>
+                  <p className="text-2xl font-bold text-green-500">
+                    {visitedCount}
+                  </p>
                   <p className="text-xs text-gray-500">去过的地方</p>
                 </div>
               </div>
@@ -634,7 +736,11 @@ const TravelPage: React.FC = () => {
                     : 'text-gray-500 hover:text-gray-700 dark:text-gray-400'
                 }`}
               >
-                {f === 'all' ? `全部 ${places.length}` : f === 'wishlist' ? `想去 ${wishlistCount}` : `去过 ${visitedCount}`}
+                {f === 'all'
+                  ? `全部 ${places.length}`
+                  : f === 'wishlist'
+                    ? `想去 ${wishlistCount}`
+                    : `去过 ${visitedCount}`}
               </button>
             ))}
           </div>
@@ -646,13 +752,18 @@ const TravelPage: React.FC = () => {
           >
             {filteredPlaces.length === 0 ? (
               <div className="flex h-32 items-center justify-center rounded-xl bg-gray-50 text-sm text-gray-400 dark:bg-gray-800/30">
-                {filter === 'all' ? '还没有地点，点击地图添加吧！' : `暂无${filter === 'wishlist' ? '想去' : '去过'}的地方`}
+                {filter === 'all'
+                  ? '还没有地点，点击地图添加吧！'
+                  : `暂无${filter === 'wishlist' ? '想去' : '去过'}的地方`}
               </div>
             ) : (
               filteredPlaces.map((place) => (
                 <button
                   key={place.id}
-                  onClick={() => { setSelectedPlace(place); setShowModal(false); }}
+                  onClick={() => {
+                    setSelectedPlace(place);
+                    setShowModal(false);
+                  }}
                   className="w-full rounded-xl p-3 text-left transition-all hover:shadow-sm"
                   style={{
                     background:
@@ -675,12 +786,18 @@ const TravelPage: React.FC = () => {
                       {place.status === 'visited' ? '🚩' : '📍'}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-semibold">{place.name}</p>
+                      <p className="truncate text-sm font-semibold">
+                        {place.name}
+                      </p>
                       {place.description && (
-                        <p className="mt-0.5 truncate text-xs opacity-50">{place.description}</p>
+                        <p className="mt-0.5 truncate text-xs opacity-50">
+                          {place.description}
+                        </p>
                       )}
                       {place.visitDate && (
-                        <p className="mt-0.5 text-xs text-green-500">{place.visitDate}</p>
+                        <p className="mt-0.5 text-xs text-green-500">
+                          {place.visitDate}
+                        </p>
                       )}
                     </div>
                     {place.photos.length > 0 && (
@@ -696,7 +813,10 @@ const TravelPage: React.FC = () => {
         </div>
 
         {/* ── 右侧地图 ── */}
-        <div className="relative min-h-[520px] flex-1 lg:min-h-0" style={{ height: 'calc(100vh - 200px)' }}>
+        <div
+          className="relative min-h-[520px] flex-1 lg:min-h-0"
+          style={{ height: 'calc(100vh - 200px)' }}
+        >
           <TravelMap
             places={places}
             onMapClick={handleMapClick}
@@ -707,7 +827,10 @@ const TravelPage: React.FC = () => {
           {/* 图例 */}
           <div
             className="absolute bottom-8 left-3 rounded-xl px-3 py-2.5 shadow-lg"
-            style={{ background: 'var(--bg-color,rgba(255,255,255,0.92))', backdropFilter: 'blur(8px)' }}
+            style={{
+              background: 'var(--bg-color,rgba(255,255,255,0.92))',
+              backdropFilter: 'blur(8px)',
+            }}
           >
             <p className="mb-1.5 text-xs font-semibold opacity-60">图例</p>
             <div className="flex flex-col gap-1 text-xs">
@@ -734,7 +857,10 @@ const TravelPage: React.FC = () => {
         <PlaceModal
           place={editingPlace}
           onSave={handleSave}
-          onClose={() => { setShowModal(false); setEditingPlace(null); }}
+          onClose={() => {
+            setShowModal(false);
+            setEditingPlace(null);
+          }}
         />
       )}
 
@@ -742,7 +868,11 @@ const TravelPage: React.FC = () => {
       {selectedPlace && !showModal && (
         <PlaceDetail
           place={selectedPlace}
-          onEdit={() => { setEditingPlace(selectedPlace); setShowModal(true); setSelectedPlace(null); }}
+          onEdit={() => {
+            setEditingPlace(selectedPlace);
+            setShowModal(true);
+            setSelectedPlace(null);
+          }}
           onDelete={() => handleDelete(selectedPlace.id)}
           onClose={() => setSelectedPlace(null)}
         />
