@@ -526,7 +526,6 @@ const TravelMap: React.FC<TravelMapProps> = ({
       map.remove();
       mapRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDark]);
 
   // 同步切换地图样式（暗/亮）
